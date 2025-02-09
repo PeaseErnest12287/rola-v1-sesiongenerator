@@ -65,9 +65,10 @@ router.get('/', async (req, res) => {
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ❶ || Creator = 𖥘⚡ PEASE ERNEST ⚡𖥘
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❷ || WhattsApp Channel = 
+❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VayK4ty7DAWr0jeCZx0i 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-©*2024-2099 Pease Ernest*`
+③ || WhatsApp group = https://chat.whatsapp.com/FAJjIZY3a09Ck73ydqMs4E
+©*2025-2099 Pease Ernest*`
  await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
  
 

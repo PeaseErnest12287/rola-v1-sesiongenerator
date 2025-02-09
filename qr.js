@@ -67,7 +67,9 @@ router.get('/', async (req, res) => {
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ❶ || Creator = 𖥘⚡ PEASE ERNEST ⚡𖥘
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❷ || WhattsApp Channel =  
+❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VayK4ty7DAWr0jeCZx0i 
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+③ || WhatsApp group = https://chat.whatsapp.com/FAJjIZY3a09Ck73ydqMs4E 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ❸ || Owner = https://t.me/peaseernest
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
