@@ -1,98 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rola V1 Bot</title>
-  <link rel="icon" type="image/x-icon" href="./rola.jpg">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="./rola.jpg"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #000011, #001122);
+      color: #0ff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #000;
-      color: #0ff;
       font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
     }
 
     .container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00f, 0 0 60px #0ff;
       text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 0 15px cyan, 0 0 30px blue;
+      width: 90%;
+      max-width: 450px;
+      animation: fadeIn 1s ease-out;
     }
 
     h3 {
-      font-size: 2em;
-      text-shadow: 0 0 15px cyan;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px cyan;
+    }
+
+    p {
+      margin: 10px 0;
     }
 
     .input-container {
       display: flex;
+      flex-direction: column;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 15px;
+      animation: pulse 2s infinite;
     }
 
     .input-container input {
-      padding: 10px;
+      padding: 12px;
       border: 2px solid cyan;
-      border-radius: 5px;
+      border-radius: 8px;
       background: #111;
       color: #0ff;
+      outline: none;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    .input-container input:focus {
+      box-shadow: 0 0 10px cyan;
     }
 
     .input-container button {
-      padding: 10px;
+      padding: 12px;
       background: cyan;
       color: black;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    .input-container button:hover {
+      background: #00eaff;
+      transform: scale(1.03);
     }
 
     .whatsapp-btn {
       display: block;
       margin-top: 10px;
-      padding: 10px;
+      padding: 12px;
       background: #25D366;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
+      transform: scale(1.05);
+    }
+
+    #pair {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #0ff; }
+      50% { box-shadow: 0 0 20px #00f; }
+    }
+
+    @media (max-width: 500px) {
+      .input-container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h3>ROLA V1 - Created by Pease Ernest</h3>
+    <h3>Ernest v2 — Crafted by Pease Ernest ⚙️</h3>
     <p>Enter your number with country code</p>
     <div class="input-container">
-      <input placeholder="+23490665xxx" type="number" id="number">
+      <input placeholder="+23490665xxx" type="tel" id="number" />
       <button id="submit">Enter</button>
     </div>
     <p id="pair"></p>
     <p>Join our community for updates:</p>
-    <a href="https://whatsapp.com/channel/0029VayK4ty7DAWr0jeCZx0i" class="whatsapp-btn">Join Channel</a>
-    <a href="https://chat.whatsapp.com/FAJjIZY3a09Ck73ydqMs4E" class="whatsapp-btn">Join Group</a>
+    <a href="https://whatsapp.com/channel/0029VayK4ty7DAWr0jeCZx0i" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Join Channel</a>
+    <a href="https://chat.whatsapp.com/FAJjIZY3a09Ck73ydqMs4E" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Join Group</a>
   </div>
 
   <script>
-    document.getElementById("submit").addEventListener("click", async () => {
-      let number = document.getElementById("number").value.trim();
-      if (!number) {
-        document.getElementById("pair").innerHTML = "Please enter a valid number.";
+    const input = document.getElementById("number");
+    const pairText = document.getElementById("pair");
+
+    async function fetchCode() {
+      const number = input.value.trim();
+      if (!number || !number.startsWith('+')) {
+        pairText.innerHTML = "🚫 Please enter a valid number with +countrycode.";
         return;
       }
-      document.getElementById("pair").innerHTML = "Processing...";
-      let response = await fetch(`/code?number=${number}`);
-      let data = await response.json();
-      document.getElementById("pair").innerHTML = `CODE: ${data.code || "Service Unavailable"}`;
+
+      pairText.innerHTML = "⏳ Processing...";
+      try {
+        const response = await fetch(`/code?number=${encodeURIComponent(number)}`);
+        const data = await response.json();
+        pairText.innerHTML = `✅ CODE: ${data.code || "Service Unavailable"}`;
+      } catch (err) {
+        pairText.innerHTML = "❌ Something went wrong. Try again.";
+      }
+    }
+
+    document.getElementById("submit").addEventListener("click", fetchCode);
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") fetchCode();
     });
   </script>
 </body>
