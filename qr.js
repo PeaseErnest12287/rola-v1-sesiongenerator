@@ -60,9 +60,10 @@ router.get('/', async (req, res) => {
 	
 				   let SIGMA_MD_TEXT = `
 ┏━━━━━━━━━━━━━━
-┃Ernest V2 SESSION IS 
+┃ SESSION IS 
 ┃SUCCESSFULLY
 ┃CONNECTED ✅🔥
+|It can be of any bot made by ernest tech house:)
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ❶ || Creator = 𖥘⚡ PEASE ERNEST ⚡𖥘
